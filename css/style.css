@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(https://th.bing.com/th/id/OIP.hKejl1szCmszW_CSWNFHgQHaEK?w=325&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+    position: relative;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.title{
+    text-align: center;
+    color: white;
+}
+
+#carousel{
+    position: relative;
+    width: 700px;
+    height: 300px;
+    margin: 30px auto;
+}
+
+#thumbnails{
+    width: 100%;
+    margin: 30px auto;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+#thumbnails img{
+    width: calc(100% / 5);
+    object-fit: contain;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+#thumbnails img.active{
+    opacity: 1;
+    border: 2px solid white;
+}
+
+#carousel .gallery{
+    width: 100%;
+    margin-left: 200px;
+}
+
+#carousel img{
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: none;
+}
+
+#carousel img.active{
+    display: block;
+}
+
+#carousel .fa-solid{
+    color: white;
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    top: 70%;
+    
+}
+
+#prec{
+    right: 110%;
+}
+
+#next{
+    left: 95%;
+}
