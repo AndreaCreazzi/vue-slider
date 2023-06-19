@@ -60,12 +60,25 @@ body{
     margin-left: 200px;
 }
 
+#carousel figure{
+    width: 300px;
+    height: 100%;
+    position: relative;
+}
+
+#carousel figcaption{
+    position: absolute;
+    top: 0%;
+    right: 50%;
+    color: red;
+    font-size: 0.8rem;
+}
+
 #carousel img{
     width: 300px;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    display: none;
 }
 
 #carousel img.active{
@@ -77,14 +90,15 @@ body{
     position: absolute;
     font-size: 2rem;
     cursor: pointer;
-    top: 70%;
-    
+    top: 70%;  
 }
 
 #prec{
     right: 110%;
+    position: absolute;
 }
 
 #next{
     left: 95%;
+    position: absolute;
 }

@@ -10,29 +10,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- js -->
     <script defer src="js/newscript.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div id="root" class="container">
         <h1 class="title">SALA GAMING: SCEGLI IL GIOCO</h1>
         <div id="carousel">
-            <i class="fa-solid fa-circle-arrow-left" id="prev"></i>
+            <!-- tasto prev -->
+            <i class="fa-solid fa-circle-arrow-left" id="prev" @click="goToPrev" @mouseenter="stopAutoPlay" @mouseleave="startAutoPlay"></i>
+            <!-- galleria -->
             <div class="gallery">
-                <img src="img/01.webp" alt="Gaming 1" class="active">
-                <img src="img/02.webp" alt="Gaming 2">
-                <img src="img/03.webp" alt="Gaming 3">
-                <img src="img/04.webp" alt="Gaming 4">
-                <img src="img/05.webp" alt="Gaming 5">
+                <figure v-for="(game , i) in games" v-show="currentIndex === i">
+                    <img :src="game.image" :alt="game.text" :title="game.title">
+                    <figcaption>
+                        <h1>{{game.title}}</h1>
+                        <p>{{game.text}}</p>
+                    </figcaption>
+                </figure>
             </div>
-            <i class="fa-solid fa-circle-arrow-right" id="next"></i>
+            <!-- testo next -->
+            <i class="fa-solid fa-circle-arrow-right" id="next" @click="goToNext" @mouseenter="stopAutoPlay" @mouseleave="startAutoPlay"></i>
         </div>
+        <!-- thumbnails -->
         <div id="thumbnails" class="d-flex">
-            <img src="img/01.webp" alt="Gaming 1" class="active">
-            <img src="img/02.webp" alt="Gaming 2">
-            <img src="img/03.webp" alt="Gaming 3">
-            <img src="img/04.webp" alt="Gaming 4">
-            <img src="img/05.webp" alt="Gaming 5">
+            <img v-for="(game , i) in games" :src="game.image" :alt="game.text" :title="game.title" :class="{active : currentIndex === i}" @click="setCurrentIndex(i)" @mouseenter="stopAutoPlay" @mouseleave="startAutoPlay">
         </div>
     </div>
 </body>
